@@ -12,12 +12,11 @@ REPO_DIR = os.path.dirname(SNAKEFILE)
 rule all:
 	input:
 	#BAM files.
-		expand(os.path.join(config["OUTDIR"], "BAM", "{sample}", "BAM_{sample}_{chr}.bam"), chr = config["CHROMOSOMES"], sample=config["FASTQ"]["SAMPLES"].keys())
-
+		expand(os.path.join(config["OUTDIR"], "BAM", "{sample}", "BAM_{sample}_{chr}.bam"), chr = config["CHROMOSOMES"], sample=config["FASTQ"]["SAMPLES"].keys()),
     		#List of pathogenic variants intersected with the variant calling results.
 		#expand(os.path.join(config["OUTDIR"], "PathogenicVariants", "{sample}" "Pathogenic_Variants_{sample}_{chr}.txt"), chr = config["CHROMOSOMES"], sample = config["FASTQ"].keys()),
 		#VCF files.
-		#expand(os.path.join(config["OUTDIR"], "VCF", "{sample}" "VCF_{sample}_{chr}.vcf"), chr = config["CHROMOSOMES"], sample = config["FASTQ"].keys()),
+		expand(os.path.join(config["OUTDIR"], "VCF", "{sample}" "VCF_{sample}_{chr}.vcf"), chr = config["CHROMOSOMES"], sample = config["FASTQ"].keys()),
 	
 
 #Include the snakemake rules per processing modul:
