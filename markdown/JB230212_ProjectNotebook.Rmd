@@ -1,0 +1,25 @@
+---
+title: "JB230212_ProjectNotebook"
+output: html_document
+date: "2023-02-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# JB230210 Initialization of project.
+* Reference genome:
+  + hg38 patch 14.
+  + https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40
+* Pre-requisites:
+  + Bowtie2 index built from reference genome FASTA.
+
+## Building bowtie2 index:
+```{bash, eval=FALSE}
+
+bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-2023-02-12/GCF_000001405.40_GRCh38.p14_genomic.fna /home/james/Desktop/Projects/GeneSys/External_Data/Bt2_hg38_idx/JB230212_hg38_bt2
+
+```
+
+

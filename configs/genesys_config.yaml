@@ -4,7 +4,7 @@
 OUTDIR: "/home/james/Desktop/Projects/GeneSys/Proc_Data/JB230212_GeneSys_Run"
 
 #Path to the bowtie2 reference index files. 
-BOWTIE2_IDX: "idx" 
+BOWTIE2_IDX: "/home/james/Desktop/Projects/GeneSys/External_Data/Bt2_hg38_idx/JB230212_hg38_bt2" 
 
 #List of target chromosomes to process:
 CHROMOSOMES:
