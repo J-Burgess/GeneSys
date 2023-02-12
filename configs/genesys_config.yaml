@@ -1,11 +1,10 @@
 #YAML file containing configuration variables required for the GeneSys pipeline.
 
-
 #Root output directory of the pipeline.
 OUTDIR: "/home/james/Desktop/Projects/GeneSys/Proc_Data/JB230212_GeneSys_Run"
 
 #Path to the bowtie2 reference index files. 
-BOWTIE2_IDX:  
+BOWTIE2_IDX: "idx" 
 
 #List of target chromosomes to process:
 CHROMOSOMES:
@@ -32,4 +31,15 @@ CHROMOSOMES:
   - chr21
   - chr22
   - chrX
-  - chrY 
+  - chrY
+
+####### DATA SECTION ########
+#Paths to FASTQ files. 
+#Dictionary where SAMPLES key contains sample name as keys with R1 and R2 keys that contain paths to the respective FASTQ.
+
+FASTQ:
+  SAMPLES:
+    sample1:
+      R1: "r1.txt"
+      R2: "r2.txt"
+
