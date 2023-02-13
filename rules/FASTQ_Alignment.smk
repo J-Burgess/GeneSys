@@ -28,9 +28,11 @@ rule split_bam:
 		chr_bam = os.path.join(config["OUTDIR"], "BAM", "{sample}", "BAM_{sample}_{chr}.bam")
 	threads:
 		1
+	params:
+		chr = "{chr}",
 	conda:
 		os.path.join(REPO_DIR, "fastq_align.yaml")
 	shell:
-		"samtools view -b {input.bam} {wildcards.chrom} > {output.bam}"
+		"samtools view -b {input.bam} {params.chr} > {output.chr_bam}"
 
 

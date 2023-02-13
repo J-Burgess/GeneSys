@@ -60,7 +60,7 @@ rule intersect_pathogenic_variants:
 	conda:
 		os.path.join(REPO_DIR, "envs", "r_data_table.yaml")
 	script:
-		os.path.join(config["SCRIPTS"], "intersect_pathogenic_variants.R")
+		os.path.join(REPO_DIR, "scripts", "intersect_pathogenic_variants.R")
 
 
 
