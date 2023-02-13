@@ -23,14 +23,10 @@ bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-20
 ```
 
 
-## ClinVAR list of pathogenic variants:
+## Obtaining pathogenic variants:
 * There are multiple databases that exist for cataloging pathogenic variants.
   + Human Gene Mutation Database (HGMD): http://www.hgmd.org/
   + Online Mendelian Inheritance in Man (OMIM): https://omim.org/
   + Catalogue of Somatic Mutations in Cancer (COSMIC): http://cancer.sanger.ac.uk/cosmic
   + ClinVAR: https://www.ncbi.nlm.nih.gov/clinvar/
   
-* For testing pipeline purposes I will be using ClinVar available data.
-* FTP:
-  + https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
-
