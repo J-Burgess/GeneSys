@@ -12,6 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 * Reference genome:
   + hg38 patch 14.
   + https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40
+* Download the hg38 reference VCF from dbSNP
+  + https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz
 * Pre-requisites:
   + Bowtie2 index built from reference genome FASTA.
 
@@ -29,4 +31,17 @@ bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-20
   + Online Mendelian Inheritance in Man (OMIM): https://omim.org/
   + Catalogue of Somatic Mutations in Cancer (COSMIC): http://cancer.sanger.ac.uk/cosmic
   + ClinVAR: https://www.ncbi.nlm.nih.gov/clinvar/
+  
+## Downloading ClinVAR pathogenic variants summary:
+* Tab separated text file:
+  + Contains many columns but rsID will be the one to match called variants with. 
+
+## Annotating called variants with rsIDs:
+* Downloaded the hg38 reference VCF from dbSNP FTP server.
+  + Plan to use bcftools-annotate to annotate rsID of called variants. 
+  + Can then simply merge on matching rsID. 
+  
+  
+  
+
   
