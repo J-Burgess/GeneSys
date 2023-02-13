@@ -30,7 +30,7 @@ rule query_info_from_VCF:
 	conda:
 		os.path.join(REPO_DIR, "envs", "intersect_variants.yaml")
 	shell:
-		"bcftools query -f '%ID\t%POS\t%REF\t%ALT\t%DP\n' {input.annotated} > {output.query}"
+		"bcftools query -f '%ID\t%CHROM\t%POS\t%REF\t%ALT\t%DP\n' {input.annotated} > {output.query}"
 
 
 #For each sample, concatenate all the VCF query text files into one file.
@@ -54,7 +54,7 @@ rule intersect_pathogenic_variants:
 		query = os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_query_{sample}_genome.txt"),
 		clinvar = config["CLINVAR_VARIANTS"],
 	output:
-		intersect = os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_intersect_{sample}_genome.txt"),
+		intersected = os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_intersect_{sample}_genome.txt"),
 	threads:	
 		10
 	conda:

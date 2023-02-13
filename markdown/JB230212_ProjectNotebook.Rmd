@@ -40,7 +40,7 @@ bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-20
 * Downloaded the hg38 reference VCF from dbSNP FTP server.
   + Plan to use bcftools-annotate to annotate rsID of called variants. 
   + Can then simply merge on matching rsID. 
-  
+ 
   
   
 
