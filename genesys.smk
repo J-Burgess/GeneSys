@@ -16,7 +16,7 @@ rule all:
     		#List of pathogenic variants intersected with the variant calling results.
 		#expand(os.path.join(config["OUTDIR"], "PathogenicVariants", "{sample}" "Pathogenic_Variants_{sample}_{chr}.txt"), chr = config["CHROMOSOMES"], sample = config["FASTQ"].keys()),
 		#VCF files.
-		expand(os.path.join(config["OUTDIR"], "VCF", "{sample}" "VCF_{sample}_{chr}.vcf"), chr = config["CHROMOSOMES"], sample = config["FASTQ"].keys()),
+		expand(os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_{sample}_{chr}.vcf"), chr = config["CHROMOSOMES"], sample = config["FASTQ"]["SAMPLES"].keys()),
 	
 
 #Include the snakemake rules per processing modul:

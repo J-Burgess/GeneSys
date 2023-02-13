@@ -6,6 +6,15 @@ OUTDIR: "/home/james/Desktop/Projects/GeneSys/Proc_Data/JB230212_GeneSys_Run"
 #Path to the bowtie2 reference index files. 
 BOWTIE2_IDX: "/home/james/Desktop/Projects/GeneSys/External_Data/Bt2_hg38_idx/JB230212_hg38_bt2" 
 
+#Path to reference FASTA used.
+REF_FASTA: ""
+
+#Path to reference VCF from dbSNP
+REF_VCF: ""
+
+#Path to clinvar variants summary text file.
+CLINVAR_VARIANTS: ""
+
 #List of target chromosomes to process:
 CHROMOSOMES:
   - chr1
@@ -40,6 +49,6 @@ CHROMOSOMES:
 FASTQ:
   SAMPLES:
     sample1:
-      R1: "r1.txt"
-      R2: "r2.txt"
+      R1: "/home/james/Desktop/Projects/GeneSys/DATA/FASTQ/r1.fq"
+      R2: "/home/james/Desktop/Projects/GeneSys/DATA/FASTQ/r2.fq"
 
