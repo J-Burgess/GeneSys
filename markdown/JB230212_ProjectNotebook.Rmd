@@ -12,15 +12,28 @@ knitr::opts_chunk$set(echo = TRUE)
 * Reference genome:
   + hg38 patch 14.
   + https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.40
+```{bash, eval=FALSE}
+wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz | gunzip -c > JB230210_hg38_patch14_genomic.fa
+```
+  
 * Download the hg38 reference VCF from dbSNP
-  + https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz
+```{bash, eval=FALSE}
+wget -O - https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz | gunzip -c > JB230210_dbSNP_hg38_refVCF.vcf
+```
+
+* Download ClinVAR variant summary tab delimited text file:
+
+```{bash, eval=FALSE}
+wget -O - https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz | gunzip -c > JB230210_clinVAR_hg38_variants.txt
+```
+
 * Pre-requisites:
   + Bowtie2 index built from reference genome FASTA.
 
 ## Building bowtie2 index:
 ```{bash, eval=FALSE}
 
-bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-2023-02-12/GCF_000001405.40_GRCh38.p14_genomic.fna /home/james/Desktop/Projects/GeneSys/External_Data/Bt2_hg38_idx/JB230212_hg38_bt2
+bowtie2-build -seed 111 /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-2023-02-12/JB230210_hg38_patch14_genomic.fa /home/james/Desktop/Projects/GeneSys/External_Data/Bt2_hg38_idx/JB230210_hg38_bt2
 
 ```
 
@@ -31,6 +44,9 @@ bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-20
   + Online Mendelian Inheritance in Man (OMIM): https://omim.org/
   + Catalogue of Somatic Mutations in Cancer (COSMIC): http://cancer.sanger.ac.uk/cosmic
   + ClinVAR: https://www.ncbi.nlm.nih.gov/clinvar/
+* Testing the ClinVAR example in this pipeline. 
+  + Variant summary tab separated text file:
+    + https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
   
 ## Downloading ClinVAR pathogenic variants summary:
 * Tab separated text file:
@@ -41,6 +57,8 @@ bowtie2-build /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-20
   + Plan to use bcftools-annotate to annotate rsID of called variants. 
   + Can then simply merge on matching rsID. 
  
+
+
   
   
 

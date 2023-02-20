@@ -11,13 +11,12 @@ REPO_DIR = os.path.dirname(SNAKEFILE)
 # Input all rule to request final targets.
 rule all:
 	input:
-	#BAM files.
+		#BAM files.
 		expand(os.path.join(config["OUTDIR"], "BAM", "{sample}", "BAM_{sample}_{chr}.bam"), chr = config["CHROMOSOMES"], sample=config["FASTQ"]["SAMPLES"].keys()),
-    		#List of pathogenic variants intersected with the variant calling results.
-		#expand(os.path.join(config["OUTDIR"], "PathogenicVariants", "{sample}" "Pathogenic_Variants_{sample}_{chr}.txt"), chr = config["CHROMOSOMES"], sample = config["FASTQ"].keys()),
 		#VCF files.
 		expand(os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_{sample}_{chr}.vcf"), chr = config["CHROMOSOMES"], sample = config["FASTQ"]["SAMPLES"].keys()),
-	
+		#Intersected pathogenic variants.
+		expand(os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_intersect_{sample}_genome.txt"), sample = config["FASTQ"]["SAMPLES"].keys()),
 
 #Include the snakemake rules per processing modul:
 #1. FASTQ alignment.
