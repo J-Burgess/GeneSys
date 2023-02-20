@@ -7,13 +7,13 @@ OUTDIR: "/home/james/Desktop/Projects/GeneSys/Proc_Data/JB230212_GeneSys_Run"
 BOWTIE2_IDX: "/home/james/Desktop/Projects/GeneSys/External_Data/Bt2_hg38_idx/JB230212_hg38_bt2" 
 
 #Path to reference FASTA used.
-REF_FASTA: ""
+REF_FASTA: "/home/james/Desktop/Projects/GeneSys/External_Data/ncbi-genomes-2023-02-12/GCF_000001405.40_GRCh38.p14_genomic.fna"
 
 #Path to reference VCF from dbSNP
-REF_VCF: ""
+REF_VCF: "/home/james/Desktop/Projects/GeneSys/External_Data/dbSNP/JB230210_dbSNP_hg38_refVCF.vcf"
 
 #Path to clinvar variants summary text file.
-CLINVAR_VARIANTS: ""
+CLINVAR_VARIANTS: "/home/james/Desktop/Projects/GeneSys/External_Data/ClinVAR/variant_summary.txt"
 
 #List of target chromosomes to process:
 CHROMOSOMES:

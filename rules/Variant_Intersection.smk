@@ -38,7 +38,7 @@ rule cat_queried_VCF:
 	input:
 		expand(os.path.join(config["OUTDIR"], "VCF", "{{sample}}", "VCF_query_{{sample}}_{chr}.txt"), chr = config["CHROMOSOMES"]),
 	output:
-		os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_query_{sample}_genome.txt"),
+		os.path.join(config["OUTDIR"], "VCF", "Concatenated_Chromosomes", "{sample}", "VCF_query_{sample}_genome.txt"),
 	threads:
 		1
 	conda:
@@ -51,7 +51,7 @@ rule cat_queried_VCF:
 #Output a tab separated text file containing the ClinVar information of the intersected variants.
 rule intersect_pathogenic_variants:
 	input:
-		query = os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_query_{sample}_genome.txt"),
+		query = os.path.join(config["OUTDIR"], "VCF", "Concatenated_Chromosomes", "{sample}", "VCF_query_{sample}_genome.txt"),
 		clinvar = config["CLINVAR_VARIANTS"],
 	output:
 		intersected = os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_intersect_{sample}_genome.txt"),
