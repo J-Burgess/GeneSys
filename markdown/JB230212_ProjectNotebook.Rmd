@@ -18,7 +18,7 @@ wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405
   
 * Download the hg38 reference VCF from dbSNP
 ```{bash, eval=FALSE}
-wget -O - https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz | gunzip -c > JB230210_dbSNP_hg38_refVCF.vcf
+wget https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz
 ```
 
 * Download ClinVAR variant summary tab delimited text file:
@@ -59,7 +59,13 @@ bowtie2-build -seed 111 /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-
  
 
 
-  
-  
+# JB230220 Pipeline completes from start to end with a dry run successfully. 
+* Fundamentals of the pipeline are in place for the basic test run. 
+* Need to fully download the reference VCF. 
+* Steps after this:
+  + Full run to see if pipeline works as intended. 
+  + Documentation of steps. 
+  + Containerization via singularity. 
+  + Add feature ideas to github page. + Update wiki with the documentation and DAG. 
 
   
