@@ -2,6 +2,10 @@
 
 GeneSys is a pipeline that takes in raw FASTQ paired end data, aligns to a reference genome and performs variant calling. Subsequently, the called variants are intersected with known pathogenic variants from ClinVAR. Outputs are a tab separated text file containing variants which were called and also found in the ClinVAR database.
 
+
+## TODO
+Currently the container is built using the main branch of the repository. This is fine for testing on my system as the configuration file contains paths to data relative to my system. To make it portable I will soon update with the ability to provide a configuration file via the singularity run command so that other users can easily run the pipeline without having to make their own copy of the repo and modify configs. 
+
 ## Singularity container 
 
 This Singularity container sets up a fresh Ubuntu install with Miniconda and Mamba, and installs the Snakemake package along with other dependencies required for the GeneSys pipeline. The GeneSys repository is also cloned to /genesys/repo within the container.
