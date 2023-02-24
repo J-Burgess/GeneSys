@@ -1,0 +1,40 @@
+#Singularity container definition file for genesys pipeline. 
+
+
+Bootstrap: docker
+From: ubuntu:20.04
+
+#Environment variables to be made available from build time to run time. 
+%environment
+  export PATH="/opt/conda/bin:$PATH"
+
+%post
+  # Update and install necessary packages
+  apt-get update
+  apt-get install -y wget bzip2
+
+  # Install Miniconda
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
+  rm Miniconda3-latest-Linux-x86_64.sh
+
+  # Install Mamba
+  /opt/conda/bin/conda install --quiet -c conda-forge mamba
+
+  # Install Snakemake using Mamba
+  /opt/conda/bin/mamba install --quiet -c bioconda -c conda-forge snakemake
+
+  # Create default environment
+  /opt/conda/bin/conda create --name snakemake
+
+
+
+%runscript
+  
+  # Run Snakemake
+  snakemake -v
+
+
+
+
+

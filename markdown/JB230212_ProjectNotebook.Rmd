@@ -18,7 +18,7 @@ wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405
   
 * Download the hg38 reference VCF from dbSNP
 ```{bash, eval=FALSE}
-wget https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz
+wget https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.40.gz JB230210_dbSNP_hg38_refVCF.vcf.gz
 ```
 
 * Download ClinVAR variant summary tab delimited text file:
@@ -69,3 +69,16 @@ bowtie2-build -seed 111 /home/james/Desktop/Projects/GeneSys/External_Data/ncbi-
   + Add feature ideas to github page. + Update wiki with the documentation and DAG. 
 
   
+#JB230224 Singularity container creation:
+* To ensure reproducibility across machines I am configuring a singularity container that installs all required packages to run the snakemake command that executes the pipeline. 
+* Commands can run with --fakeroot to enable building and running of containers without root privileges which is helpful when running on HPCCs.
+* Pre-reqs: 
+  + Install singularity. 
+  + uidmap package must be installed on the machine to enable fakeroot. May have to ask server admin to do this for you with `sudo apt-get install -y uidmap`
+  
+```{bash, eval=F}
+
+singularity build --fakeroot /home/james/Desktop/Projects/GeneSys/singularity_containers/genesys.sif  /home/james/Desktop/Projects/GeneSys/repos/GeneSys/singularity_genesys.def 
+
+```
+
