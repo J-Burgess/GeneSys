@@ -2,6 +2,8 @@
 
 GeneSys is a pipeline that takes in raw FASTQ paired end data, aligns to a reference genome and performs variant calling. Subsequently, the called variants are intersected with known pathogenic variants from ClinVAR. Outputs are a tab separated text file containing variants which were called and also found in the ClinVAR database.
 
+**Please see the wiki for more info!** 
+
 
 ## TODO
 Currently the container is built using the main branch of the repository. This is fine for testing on my system as the configuration file contains paths to data relative to my system. To make it portable I will soon update with the ability to provide a configuration file via the singularity run command so that other users can easily run the pipeline without having to make their own copy of the repo and modify configs. 
