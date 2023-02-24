@@ -56,7 +56,7 @@ rule intersect_pathogenic_variants:
 	output:
 		intersected = os.path.join(config["OUTDIR"], "VCF", "{sample}", "VCF_intersect_{sample}_genome.txt"),
 	threads:	
-		10
+		workflow.cores
 	conda:
 		os.path.join(REPO_DIR, "envs", "r_data_table.yaml")
 	script:
