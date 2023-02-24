@@ -10,7 +10,7 @@ rule align_FASTQ:
 		#Output the BAM file to the output directory
 		bam = os.path.join(config["OUTDIR"], "BAM", "{sample}", "BAM_{sample}.bam"),
 	threads:
-		workdflow.cores
+		workflow.cores
 	conda:
 		os.path.join(REPO_DIR, "fastq_align.yaml")
 	shell:
