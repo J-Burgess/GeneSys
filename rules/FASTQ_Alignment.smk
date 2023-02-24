@@ -12,7 +12,7 @@ rule align_FASTQ:
 	threads:
 		workflow.cores
 	conda:
-		os.path.join(REPO_DIR, "fastq_align.yaml")
+		os.path.join(REPO_DIR, "envs", "fastq_align.yaml")
 	shell:
 		"bowtie2 -p {threads} -x {config[BOWTIE2_IDX]} -1 {input.r1} -2 {input.r2} | samtools view -f2 -bS - > {output.bam}"
 
@@ -31,7 +31,7 @@ rule split_bam:
 	params:
 		chr = "{chr}",
 	conda:
-		os.path.join(REPO_DIR, "fastq_align.yaml")
+		os.path.join(REPO_DIR, "envs","fastq_align.yaml")
 	shell:
 		"samtools view -b {input.bam} {params.chr} > {output.chr_bam}"
 
