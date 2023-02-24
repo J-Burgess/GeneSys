@@ -11,13 +11,16 @@ From: ubuntu:20.04
 %post
   # Update and install necessary packages
   apt-get update
-  apt-get install -y wget bzip2
+  apt-get install -y wget bzip2 git
 
   # Install Miniconda
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
   bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
   rm Miniconda3-latest-Linux-x86_64.sh
-
+  
+  # Clone GeneSys repository within container. 
+  git clone https://github.com/J-Burgess/GeneSys.git /genesys/repo
+  
   # Install Mamba
   /opt/conda/bin/conda install --quiet -c conda-forge mamba
 
@@ -30,9 +33,11 @@ From: ubuntu:20.04
 
 
 %runscript
-  
+  # take cores as first argument from command line of singularity run.
+  CORES=$1
+
   # Run Snakemake
-  snakemake -v
+  snakemake -s /genesys/repo/genesys.smk --use-conda --configfile /genesys/repo/configs/genesys_config.yaml --cores $CORES all
 
 
 
