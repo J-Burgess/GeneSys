@@ -32,7 +32,7 @@ Replace <cores> with the number of cores you want to use for your analysis. This
 When you run this command, the Singularity container will activate the default environment with Snakemake and GeneSys dependencies installed and execute the Snakefile with the specified number of cores.
 
 ## Future plans
-Inspired by my recent diagnosis of Chrons disease, I envision this pipeline as the foundation for a side project I have of developing an automated gene therapy platform. From known pathogenic variants identified in your sequencing data, a database/literature mining operation will be performed to search for potential therapeutic targets. If potential therapeautic targets are identified I would like to automate development of sg-RNA CRISPR sequences which could then be utilized via a vector of choice such as AAV. 
+Inspired by my recent diagnosis of Chron's disease, I envision this pipeline as the foundation for a project I have of testing the feasability of an automated gene therapy platform. From known pathogenic variants identified in your sequencing data, a database/literature mining operation will be performed to search for potential therapeutic targets. If potential therapeautic targets are identified I would like to automate development of sg-RNA CRISPR sequences which could then be utilized via a vector of choice such as AAV. 
 
 Additionally, my professional work has brought me to the fascinating field of deep learning to predict expression of DNA from sequence alone. Perhaps there lies the opportunity to implement some in-silico predictions for clinical targets.  
 
