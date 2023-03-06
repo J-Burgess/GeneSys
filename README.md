@@ -1,5 +1,5 @@
 # GeneSys 
-GeneSys is a passion project of mine, I envision this pipeline as the foundation for a project I have of testing the feasability of an automated gene therapy platform. From known pathogenic variants identified in your sequencing data, a database/literature mining operation will be performed to search for potential therapeutic targets.
+GeneSys is a passion project of mine, I envision this pipeline as the foundation for testing the feasability of an automated gene therapy platform. From known pathogenic variants identified in your sequencing data, a database/literature mining operation will be performed to search for potential therapeutic targets. Perhaps there lies the opportunity to use a large language model tuned on medical papers. 
 
 GeneSys is a pipeline that takes in raw FASTQ paired end data, aligns to a reference genome and performs variant calling. Subsequently, the called variants are intersected with known pathogenic variants from ClinVAR. Outputs are a tab separated text file containing variants which were called and also found in the ClinVAR database (with plans to expand on databases).
 
